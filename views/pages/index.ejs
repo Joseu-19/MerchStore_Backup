@@ -6,7 +6,33 @@
   
     <div id="homeBanner"></div>
 
+    <% data.forEach((shirt) => { %> 
+     
+          <button 
+              type="button" 
+              class="shirt btn btn-warning" 
+              data-meeting-id="<%=shirt.id%>" 
+              data-bs-toggle="modal" 
+              data-bs-target="#shirtModal">Info
+          </button>
+      
+      </p>
+      <% }); %>
+
   </div>
 
-</div>
+  <%- include('../partials/modal.ejs') %>
+
+  <script>
+    const shirts = <%- JSON.stringify(data) %>;
+    console.log(shirts);
+
+    document.querySelectorAll('.shirt').forEach((button, index) => {
+        button.onclick = function() {
+
+        };
+    });
+</script>
+
 </body>
+</html>
