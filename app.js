@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
     })
     .then((clothing) => {
         console.log(clothing);
-        
+
         res.render("pages/index", {
             data: clothing
         });
@@ -37,13 +37,15 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/contacts', (req, res) => {
-    res.render('pages/contacts');
-});
-
 app.get('/about', (req, res) => {
     res.render('pages/about');
 });
+
+app.get('/contact', (req, res) => {
+    res.render('pages/contact');
+});
+
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
