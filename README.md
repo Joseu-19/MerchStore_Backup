@@ -14,5 +14,7 @@ The project ensures that every component of the application is modular and maint
 
 The application has a well-structured Express routing system with routes set up for important pages such as the contacts, about, and homepage. While static material is presented on other pages, data from the SQLite database is dynamically fetched and displayed on the homepage. The layout includes a navigation menu that makes it easy to access various routes. Users can effortlessly browse between various sections of the website by tying the routes to the menu. Each route renders its associated EJS view, making the user experience intuitive and user-friendly.
 
+---
+
 - Team Members: Areeb Shaikh, Jose Urizar, Danish Gopalakrishnan
 
