@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('pages/about');
 });
-// ######################################################
+// ####################shop route##################################
 app.get('/shop', (req, res) => {
     getDbConnection()
     .then((db) => {
