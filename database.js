@@ -13,38 +13,47 @@ export const setupDatabase = () => {
                 size TEXT,
                 sale BOOLEAN,
                 price INTEGER,
-                imageURL TEXT
+                imageURL TEXT,
+                UNIQUE(size, sale, price, imageURL)
             )
-        `)
+        `);
     });
 };
 
-export const populateDB = () => {
-    return open({
-        filename: './public/database/clothing.db',
-        driver: sqlite3.Database
-    }).then((db) => {
-        return db.all(`SELECT * FROM clothing`)
-            .then((existingClothes) => {
-                if (existingClothes.length == 0) {
-                    return db.run(`
-                        INSERT INTO clothing (size, sale, price, imageURL)
-                        VALUES 
-                        ('Small', 1, 25, '/images/tshirt1.png'),
-                        ('Medium', 0, 30, '/images/tshirt2.png'),
-                        ('Large', 1, 20, '/images/tshirt3.png'),
-                        ('Extra Large', 0, 35,'/images/tshirt4.png'),
-                        ('Small', 1, 15, '/images/tshirt5.png'),
-                        ('Large', 0, 40, '/images/tshirt6.png')                        
-                    `);
-                } else {
-                    console.log('Data already seeded!');
-                    return Promise.resolve();
-                }
-            });
-    }).catch((error) => {
+export const populateDB = async () => {
+    try {
+        const db = await open({
+            filename: './public/database/clothing.db',
+            driver: sqlite3.Database
+        });
+
+        const shirtData = [
+            { size: "Small", sale: 1, price: 25, imageURL: "/images/tshirt1.png" },
+            { size: "Medium", sale: 0, price: 30, imageURL: "/images/tshirt2.png" },
+            { size: "Large", sale: 1, price: 20, imageURL: "/images/tshirt3.png" },
+            { size: "Extra Large", sale: 0, price: 35, imageURL: "/images/tshirt4.png" },
+            { size: "Small", sale: 1, price: 15, imageURL: "/images/tshirt5.png" },
+            { size: "Large", sale: 0, price: 20, imageURL: "/images/tshirt3.png" },
+            { size: "Medium", sale: 0, price: 35, imageURL: "/images/tshirt4.png" },
+            { size: "Small", sale: 0, price: 15, imageURL: "/images/tshirt5.png" },
+            { size: "Small", sale: 0, price: 40, imageURL: "/images/tshirt6.png" },
+            { size: "Large", sale: 1, price: 25, imageURL: "/images/tshirt1.png" },
+            { size: "Small", sale: 0, price: 30, imageURL: "/images/tshirt4.png" }
+        ];
+
+        const placeholders = shirtData.map(() => '(?, ?, ?, ?)').join(', ');
+        const values = shirtData.flatMap(shirt => [shirt.size, shirt.sale, shirt.price, shirt.imageURL]);
+
+        await db.run(`
+            INSERT OR IGNORE INTO clothing (size, sale, price, imageURL)
+            VALUES ${placeholders}
+        `, values);
+
+        console.log("Database population complete!");
+    } catch (error) {
         console.error("Error populating the database:", error);
-    });
+        throw error;
+    }
 };
 
 
