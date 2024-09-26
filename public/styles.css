@@ -10,6 +10,21 @@ h1, h2, h3, h4, h5, h6, p {
  margin-bottom: 16px
 }
 
+.shopItemscontainer{
+    position: relative;
+    display: flex;
+    padding: 120px 0px 0px 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:start;
+    gap: 10px;
+    background-image: url(/images/Untitled\ design.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #homeBanner{
     height: 500px;
     width: 100%;
@@ -20,34 +35,29 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: black;
     background-repeat: no-repeat;
 }
-
-.wrapper{
-    background-color:white;
-    width: 100%;
-    height: 100%;
-}
-
+/* home section wrapper */
 .sectionWrapper {
     width: 100%;
     padding: 60px 12px 0px 12px;
     background-color: #F2F0EF;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: minmax(100px, 300px);
+    gap:10px;
     justify-content: center;
     height: 100%;
- }
- 
- .catalog {
-     height: 250px;
-     background-color: black;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 10px;
-     text-decoration: none;
-     transition: transform 0.2s;
- }
+}
+
+.catalog {
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
 
   .catalog:hover{
     transform: scale(1.05);
@@ -71,15 +81,24 @@ h1, h2, h3, h4, h5, h6, p {
 .women{
     background-image: url(/images/womanModel.jpg);
     background-size: cover;
+    display: grid;
     background-position: center 0px;
     background-repeat:no-repeat;
 }
 
 .catalogbtn{
     position: relative;
-    margin-top: 40%;
+    margin-top: 100px;
     text-decoration: none;
     color: white;
+}
+
+#shopHeading{
+    position: absolute;
+    /* background-color: blue; */
+    padding-top: 50px;
+    color: white;
+    z-index: 1;
 }
 
 @media screen and (max-height: 700px){

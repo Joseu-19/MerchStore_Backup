@@ -1,16 +1,10 @@
 <%- include('../partials/head.ejs') %>
 <body>
   <%- include('../partials/menu.ejs') %>
-  <h1>Shop Our Collection</h1>
 
-  <div class="container">
-    <div class="row">
-      <!-- Loop through the clothing items and render a card for each -->
-      <% data.forEach(function(item) { %>
-      <div class="col-md-4">
-        <%- include('../partials/shirtCard', { item: item }) %>
-      </div>
-      <% }); %>
-    </div>
+  <h1 id="shopHeading">Shop Our Collection</h1>
+  <div class="shopItemscontainer">
+    <% data.forEach(function(item) { %> <%- include('../partials/shirtCard', {
+    item: item }) %> <% }); %>
   </div>
 </body>
