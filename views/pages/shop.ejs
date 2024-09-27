@@ -1,0 +1,21 @@
+<%- include('../partials/head.ejs') %>
+<body>
+  <%- include('../partials/menu.ejs') %>
+  
+  <br><br><br>
+
+  <div class="container">
+    <div class="row">
+      <% data.forEach(function(item) { %>
+      <div class="col-md-4">
+        <%- include('../partials/shirtCard', { item: item }) %>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+  
+  
+  <br><br><br>
+
+  <%- include('../partials/footer.ejs') %>
+</body>

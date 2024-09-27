@@ -1,0 +1,40 @@
+import sqlite3
+
+# Create a database connection
+conn = sqlite3.connect('clothes.db')
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Create a table for shirts
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS shirts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    size TEXT,
+    sale INTEGER,
+    price REAL,
+    image_url TEXT
+)
+''')
+
+# Shirt data
+shirt_data = [
+    ('Small', 1, 25, '/images/tshirt1.png'),
+    ('Medium', 0, 30, '/images/tshirt2.png'),
+    ('Large', 1, 20, '/images/tshirt3.png'),
+    ('Extra Large', 0, 35, '/images/tshirt4.png'),
+    ('Small', 1, 15, '/images/tshirt5.png'),
+    ('Large', 0, 40, '/images/tshirt6.png')
+]
+
+# Insert shirt data into the table
+cursor.executemany('''
+INSERT INTO shirts (size, sale, price, image_url) VALUES (?, ?, ?, ?)
+''', shirt_data)
+
+# Commit the changes and close the connection
+conn.commit()
+conn.close()
+
+# Return the path of the created database file
+'clothes.db'
