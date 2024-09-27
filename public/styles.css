@@ -5,6 +5,7 @@
 }
 html, body {
  height: 100%;
+ scrollbar-width: none;
 }
 h1, h2, h3, h4, h5, h6, p {
  margin-bottom: 16px
@@ -13,12 +14,12 @@ h1, h2, h3, h4, h5, h6, p {
 .shopItemscontainer{
     position: relative;
     display: flex;
-    padding: 120px 0px 50px 50px;
+    padding: 120px 0px 0px 50px;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:start;
+    justify-content:flex-start;
     gap: 10px;
-    background-image: url(/images/Untitled\ design.png);
+    /* background-image: url(/images/Untitled\ design.png); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -30,9 +31,9 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     background-attachment: fixed;
     background-image: url(/images/banner.jpg);
-    object-fit: contain;
-    background-position: center 20px;
-    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-color: #191919;
     background-repeat: no-repeat;
 }
 /* home section wrapper */
@@ -60,8 +61,8 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
   .catalog:hover{
-    transform: scale(1.05);
-    border: 2px solid black;
+    transform: scale(1.02);
+    border: 1px solid #00053d;
  }
 
 .men{
@@ -93,13 +94,6 @@ h1, h2, h3, h4, h5, h6, p {
     color: white;
 }
 
-#shopHeading{
-    position: absolute;
-    /* background-color: blue; */
-    padding-top: 50px;
-    color: white;
-    z-index: 1;
-}
 
 @media screen and (max-height: 700px){
     #homeBanner{
@@ -107,4 +101,6 @@ h1, h2, h3, h4, h5, h6, p {
         width: 100%;
     }
 }
+
+
 
