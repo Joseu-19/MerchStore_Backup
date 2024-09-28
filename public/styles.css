@@ -60,6 +60,20 @@ h1, h2, h3, h4, h5, h6, p {
     transition: transform 0.2s;
 }
 
+.navbar-brand{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url(/images/cloth-hanger.png);
+    background-color: #ffff;
+    background-position: center;
+    background-size: cover;
+}
+
+.navbar-brand:hover{
+    transform: rotate(-40deg);
+    border: 1.5px solid grey;
+}
   .catalog:hover{
     transform: scale(1.02);
     border: 1px solid #00053d;
